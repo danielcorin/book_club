@@ -7,7 +7,7 @@ import HomeArrow from '../components/home_arrow'
 import Layout from '../components/layout'
 
 function History(props) {
-  const title = "History"
+  const title = 'History'
   return (
     <Layout title={title}>
       <h1>{title}</h1>

@@ -7,7 +7,7 @@ import HomeArrow from '../components/home_arrow'
 import Layout from '../components/layout'
 
 function Current(props) {
-  const title = "Currently reading"
+  const title = 'Currently reading'
   return (
     <Layout title={title}>
       <h1>{title}</h1>

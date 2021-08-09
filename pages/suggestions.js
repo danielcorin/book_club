@@ -27,7 +27,7 @@ function Suggestions(props) {
   const router = useRouter()
 
   const refreshData = () => {
-    router.replace(router.asPath);
+    router.replace(router.asPath)
   }
 
   const [suggestion, setSuggestion] = useState('')
@@ -122,19 +122,19 @@ function Suggestions(props) {
     refreshData()
   }
 
-  const title = "Suggest"
+  const title = 'Suggest'
 
   return (
 
     <Layout title={title}>
       <h1>{title}</h1>
-      <form autoComplete="off" onSubmit={submitSuggestion}>
-        <Input required placeholder="Book title" value={suggestion} onChange={handleSuggestionChange} />
-        <Input type="url" placeholder="Book url" value={url} onChange={handleUrlChange} />
+      <form autoComplete='off' onSubmit={submitSuggestion}>
+        <Input required placeholder='Book title' value={suggestion} onChange={handleSuggestionChange} />
+        <Input type='url' placeholder='Book url' value={url} onChange={handleUrlChange} />
         <Button
-          type="submit"
-          variant="contained"
-          color="inherit"
+          type='submit'
+          variant='contained'
+          color='inherit'
         >
           Submit
         </Button>
@@ -144,29 +144,29 @@ function Suggestions(props) {
       {
         props.suggestions.map((sug, index) => {
           const titleStyle = {
-            textDecoration: sug.read ? "line-through" : "none"
+            textDecoration: sug.read ? 'line-through' : 'none'
           }
           return (
             <div key={sug.id}>
-              <Grid container direction="row" alignItems="center">
+              <Grid container direction='row' alignItems='center'>
                 <Grid item>
                   <Checkbox
-                    color="primary"
+                    color='primary'
                     checked={sug.read}
                     onChange={() => toggleRead(sug)}
-                    inputProps={{ "aria-label": "primary checkbox" }}
+                    inputProps={{ 'aria-label': 'primary checkbox' }}
                   />
                 </Grid>
-                <Grid item style={{ cursor: "pointer" }}>
+                <Grid item style={{ cursor: 'pointer' }}>
                   <ThumbUpAltIcon onClick={() => doUpvote(sug)} />
                 </Grid>
-                <Grid item style={{ cursor: "pointer" }}>
+                <Grid item style={{ cursor: 'pointer' }}>
                   <DeleteForeverIcon onClick={() => doDelete(sug)} />
                 </Grid>
-                <Grid item style={{ cursor: "pointer" }}>
+                <Grid item style={{ cursor: 'pointer' }}>
                   {
                     sug.url ?
-                      <MaterialLink href={sug.url} rel="noopener noreferrer" target="_blank">
+                      <MaterialLink href={sug.url} rel='noopener noreferrer' target='_blank'>
                         <LinkIcon />
                       </MaterialLink>
                       : null
