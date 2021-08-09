@@ -3,10 +3,14 @@ import Link from 'next/link'
 
 import { getBooks } from '../utils/books'
 
+import HomeArrow from '../components/home_arrow'
+import Layout from '../components/layout'
+
 function History(props) {
+  const title = "History"
   return (
-    <>
-      <h1>History</h1>
+    <Layout title={title}>
+      <h1>{title}</h1>
       {
         props.books.map((book, index) => {
           return (
@@ -14,10 +18,8 @@ function History(props) {
           )
         })
       }
-      <Link href="/">
-        <a>&larr; Home</a>
-      </Link>
-    </>
+      <HomeArrow />
+    </Layout>
   )
 }
 

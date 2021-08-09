@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import Head from 'next/head'
 import Link from 'next/link'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
 
 import {
   Button,
@@ -10,14 +10,17 @@ import {
   Grid,
   Input,
   Link as MaterialLink,
-} from '@material-ui/core';
+} from '@material-ui/core'
 
 
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import LinkIcon from '@material-ui/icons/Link';
-import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
+import LinkIcon from '@material-ui/icons/Link'
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 
 import { getSuggestions } from '../utils/books'
+
+import HomeArrow from '../components/home_arrow'
+import Layout from '../components/layout'
 
 function Suggestions(props) {
   console.log(props)
@@ -119,10 +122,12 @@ function Suggestions(props) {
     refreshData()
   }
 
+  const title = "Suggest"
 
   return (
-    <>
-      <h1>Suggest</h1>
+
+    <Layout title={title}>
+      <h1>{title}</h1>
       <form autoComplete="off" onSubmit={submitSuggestion}>
         <Input required placeholder="Book title" value={suggestion} onChange={handleSuggestionChange} />
         <Input type="url" placeholder="Book url" value={url} onChange={handleUrlChange} />
@@ -139,10 +144,10 @@ function Suggestions(props) {
       {
         props.suggestions.map((sug, index) => {
           const titleStyle = {
-            "text-decoration": sug.read ? "line-through" : "none"
+            textDecoration: sug.read ? "line-through" : "none"
           }
           return (
-            <p key={sug.id}>
+            <div key={sug.id}>
               <Grid container direction="row" alignItems="center">
                 <Grid item>
                   <Checkbox
@@ -171,14 +176,12 @@ function Suggestions(props) {
                   <span style={titleStyle}>{sug.title}: {sug.votes}</span>
                 </Grid>
               </Grid>
-            </p>
+            </div>
           )
         })
       }
-      <Link href="/">
-        <a>&larr; Home</a>
-      </Link>
-    </>
+      <HomeArrow />
+    </Layout>
   )
 }
 

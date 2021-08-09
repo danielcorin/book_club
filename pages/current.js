@@ -3,10 +3,14 @@ import Link from 'next/link'
 
 import { getCurrentBook } from '../utils/books'
 
+import HomeArrow from '../components/home_arrow'
+import Layout from '../components/layout'
+
 function Current(props) {
+  const title = "Currently reading"
   return (
-    <>
-      <h1 >Currently reading</h1>
+    <Layout title={title}>
+      <h1>{title}</h1>
       {
         props.books.map((book, index) => {
           return (
@@ -14,10 +18,8 @@ function Current(props) {
           )
         })
       }
-      <Link href="/">
-        <a>&larr; Home</a>
-      </Link>
-    </>
+      <HomeArrow />
+    </Layout>
   )
 }
 

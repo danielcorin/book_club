@@ -151,5 +151,6 @@ export {
   getSuggestions,
   updateSuggestionRead,
   updateSuggestionVotes,
+
   test,
 }
