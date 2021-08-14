@@ -19,7 +19,7 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          <Link href='/current'>
+          <Link href='/reading'>
             <a className={styles.card}>
               <h2>📖 Currently reading &rarr;</h2>
               <p>Reading for the upcoming meeting</p>
