@@ -90,7 +90,7 @@ async function getSuggestions() {
     const props = item.properties
     return {
       title: props.Name.title[0].plain_text,
-      votes: props.Votes.number,
+      votes: props.Votes?.number || 0,
       url: props.Url?.url || null,
       read: props.Read.checkbox,
       id: item.id,
