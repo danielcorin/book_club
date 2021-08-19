@@ -17,7 +17,7 @@ export default function Layout({
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>{title} | Our Book Club</title>
         <meta charSet='utf-8' />
         <meta name='descriptilon' content='Our book club website' />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
@@ -31,11 +31,11 @@ export default function Layout({
                 <HomeIcon />
               </Link>
             </IconButton>
-            <Link href="/history" passHref>
-              <Button variant="text" color="inherit">History</Button>
-            </Link>
             <Link href="/reading" passHref>
               <Button variant="text" color="inherit">Reading</Button>
+            </Link>
+            <Link href="/history" passHref>
+              <Button variant="text" color="inherit">History</Button>
             </Link>
             <Link href="/suggestions" passHref>
               <Button variant="text" color="inherit">Suggestions</Button>

@@ -23,7 +23,6 @@ import HomeArrow from '../components/home_arrow'
 import Layout from '../components/layout'
 
 function Suggestions(props) {
-  console.log(props)
   const router = useRouter()
 
   const refreshData = () => {
@@ -57,7 +56,6 @@ function Suggestions(props) {
     )
 
     const result = await res.json()
-    console.log(result)
     setSuggestion('')
     setUrl('')
     refreshData()
@@ -122,7 +120,7 @@ function Suggestions(props) {
     refreshData()
   }
 
-  const title = 'Suggest'
+  const title = 'Suggestions'
 
   return (
 

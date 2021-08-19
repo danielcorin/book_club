@@ -18,6 +18,7 @@ async function getBooks() {
     return {
       title: props.Name.title[0].plain_text,
       completed_at: props['Date finished'].date.start,
+      genre: props.Genre.select.name,
     }
   })
   return bookList
@@ -39,6 +40,7 @@ async function getCurrentBook() {
     return {
       title: props.Name.title[0].plain_text,
       assigned: props.Assigned.rich_text[0].plain_text,
+      genre: props.Genre.select.name,
     }
   })
   return bookList
@@ -60,7 +62,6 @@ async function createSuggestion(title, url) {
   if (url) {
     properties.Url = { url: url }
   }
-  console.log(properties)
   try {
     const result = await notion.request({
       path: "pages",
