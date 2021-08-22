@@ -12,13 +12,22 @@ async function getBooks() {
         is_not_empty: true
       },
     },
+    sorts: [
+      {
+        property: "Date finished",
+        direction: "descending",
+      }
+    ]
   })
   const bookList = response.results.map(item => {
     const props = item.properties
     return {
       title: props.Name.title[0].plain_text,
+      author: props.Author.rich_text[0].plain_text,
       completed_at: props['Date finished'].date.start,
       genre: props.Genre.select.name,
+      link: props.Link.url,
+      cover_link: props.Cover.files[0].name,
     }
   })
   return bookList
@@ -34,13 +43,22 @@ async function getCurrentBook() {
         is_empty: true
       },
     },
+    sorts: [
+      {
+        timestamp: "created_time",
+        direction: "descending",
+      }
+    ]
   })
   const bookList = response.results.map(item => {
     const props = item.properties
     return {
       title: props.Name.title[0].plain_text,
+      author: props.Author.rich_text[0].plain_text,
+      link: props.Link.url,
       assigned: props.Assigned.rich_text[0].plain_text,
       genre: props.Genre.select.name,
+      cover_link: props.Cover.files[0].name,
     }
   })
   return bookList
