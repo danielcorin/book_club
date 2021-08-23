@@ -12,15 +12,14 @@ import {
   Link as MaterialLink,
 } from '@material-ui/core'
 
-
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
-import LinkIcon from '@material-ui/icons/Link'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 
 import { getSuggestions } from '../utils/books'
 
 import HomeArrow from '../components/home_arrow'
 import Layout from '../components/layout'
+
+import Cookies from 'universal-cookie'
 
 function Suggestions(props) {
   const router = useRouter()
@@ -61,8 +60,27 @@ function Suggestions(props) {
     refreshData()
   }
 
+  const addVote = (id) => {
+    const cookies = new Cookies()
+    const votes = getVotes()
+    votes.push(id)
+    cookies.set('votes', votes, { path: '/' });
+  }
+
+  const getVotes = () => {
+    return props.votes
+  }
+
+  const hasVote = (id) => {
+    return getVotes().includes(id)
+  }
+
   const doUpvote = async (sug) => {
     const [id, votes] = [sug.id, sug.votes]
+    if (hasVote(id)) {
+      return
+    }
+    addVote(id)
     const res = await fetch(
       '/api/suggestions',
       {
@@ -121,7 +139,6 @@ function Suggestions(props) {
   }
 
   const title = 'Suggestions'
-
   return (
 
     <Layout title={title}>
@@ -144,6 +161,7 @@ function Suggestions(props) {
           const titleStyle = {
             textDecoration: sug.read ? 'line-through' : 'none'
           }
+          const thumbColor = hasVote(sug.id) ? 'primary' : 'action'
           return (
             <div key={sug.id}>
               <Grid container direction='row' alignItems='center'>
@@ -156,22 +174,26 @@ function Suggestions(props) {
                   />
                 </Grid>
                 <Grid item style={{ cursor: 'pointer' }}>
-                  <ThumbUpAltIcon onClick={() => doUpvote(sug)} />
-                </Grid>
-                <Grid item style={{ cursor: 'pointer' }}>
-                  <DeleteForeverIcon onClick={() => doDelete(sug)} />
+                  <ThumbUpAltIcon
+                    color={thumbColor}
+                    onClick={() => doUpvote(sug)}
+                  />
                 </Grid>
                 <Grid item style={{ cursor: 'pointer' }}>
                   {
                     sug.url ?
                       <MaterialLink href={sug.url} rel='noopener noreferrer' target='_blank'>
-                        <LinkIcon />
                       </MaterialLink>
                       : null
                   }
                 </Grid>
                 <Grid item>
-                  <span style={titleStyle}>{sug.title}: {sug.votes}</span>
+                  <span style={titleStyle}>
+                    <MaterialLink href={sug.url} rel='noopener noreferrer' target='_blank'>
+                      {sug.title}
+                    </MaterialLink>
+                    : {sug.votes}
+                  </span>
                 </Grid>
               </Grid>
             </div>
@@ -183,14 +205,17 @@ function Suggestions(props) {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ req }) => {
   const data = await getSuggestions()
-
+  const cookies = new Cookies(req.headers.cookie)
+  const votes = cookies.get('votes') || []
   return {
     props: {
       suggestions: data,
+      votes: votes,
     }
   };
 }
+
 
 export default Suggestions

@@ -28,6 +28,7 @@ async function getBooks() {
       genre: props.Genre.select.name,
       link: props.Link.url,
       cover_link: props.Cover.files[0].name,
+      rating: props.Rating?.number || 0,
     }
   })
   return bookList
@@ -89,7 +90,6 @@ async function createSuggestion(title, url) {
         properties: properties
       },
     })
-    console.log(result)
   } catch (error) {
     console.error(error.body)
   }
