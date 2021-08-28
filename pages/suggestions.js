@@ -67,6 +67,16 @@ function Suggestions(props) {
     cookies.set('votes', votes, { path: '/' });
   }
 
+  const removeVote = (id) => {
+    const cookies = new Cookies()
+    const votes = getVotes()
+    const index = votes.indexOf(id)
+    if (index > -1) {
+      votes.splice(index, 1)
+    }
+    cookies.set('votes', votes, { path: '/' })
+  }
+
   const getVotes = () => {
     return props.votes
   }
@@ -75,18 +85,18 @@ function Suggestions(props) {
     return getVotes().includes(id)
   }
 
-  const doUpvote = async (sug) => {
+  const doVote = async (sug) => {
+    let diff = 1
     const [id, votes] = [sug.id, sug.votes]
     if (hasVote(id)) {
-      return
+      diff = -1
     }
-    addVote(id)
     const res = await fetch(
       '/api/suggestions',
       {
         body: JSON.stringify({
           id,
-          votes: votes + 1,
+          votes: votes + diff,
         }),
         headers: {
           'Content-Type': 'application/json'
@@ -94,6 +104,12 @@ function Suggestions(props) {
         method: 'PATCH'
       }
     )
+
+    if (diff == -1) {
+      removeVote(id)
+    } else {
+      addVote(id)
+    }
 
     const result = await res.json()
     refreshData()
@@ -176,7 +192,7 @@ function Suggestions(props) {
                 <Grid item style={{ cursor: 'pointer' }}>
                   <ThumbUpAltIcon
                     color={thumbColor}
-                    onClick={() => doUpvote(sug)}
+                    onClick={() => doVote(sug)}
                   />
                 </Grid>
                 <Grid item style={{ cursor: 'pointer' }}>

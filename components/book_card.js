@@ -57,22 +57,22 @@ function BookCard(props) {
           </MaterialLink>
         </Typography>
         <Typography className={classes.detail} color='textSecondary'>
-          {book.author} {book.rating ? `• ${book.genre}` : ''}
+          {`${book.author} • ${book.genre}`}
         </Typography>
         <Typography className={classes.detail} color='textSecondary'>
           {book.completed_at || book.assigned}
         </Typography>
-        <Typography className={classes.detail} color='textSecondary'>
-          {book.rating ?
+        {book.rating ?
+          <Typography className={classes.detail} color='textSecondary'>
             <Rating
               size='small'
               value={book.rating}
               precision={0.5}
               readOnly
             />
-            : book.genre
-          }
-        </Typography>
+          </Typography>
+          : null
+        }
       </CardContent>
     </Card>
   )
