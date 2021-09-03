@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles'
+import Box from '@material-ui/core/Box'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
@@ -35,6 +36,11 @@ function BookCard(props) {
       height: 125,
       width: 83,
     },
+    rating: {
+      width: 200,
+      display: 'flex',
+      alignItems: 'center',
+    },
   });
 
   const classes = useStyles()
@@ -57,19 +63,21 @@ function BookCard(props) {
           </MaterialLink>
         </Typography>
         <Typography className={classes.detail} color='textSecondary'>
-          {`${book.author} • ${book.genre}`}
+          {`${book.author} • ${book.genre} • ${book.pages} pages`}
         </Typography>
         <Typography className={classes.detail} color='textSecondary'>
           {book.completed_at || book.assigned}
         </Typography>
         {book.rating ?
           <Typography className={classes.detail} color='textSecondary'>
-            <Rating
-              size='small'
-              value={book.rating}
-              precision={0.5}
-              readOnly
-            />
+            <Box className={classes.rating}>
+              <Rating
+                size='small'
+                value={book.rating}
+                precision={0.5}
+                readOnly
+              />
+            </Box>
           </Typography>
           : null
         }

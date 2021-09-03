@@ -89,7 +89,7 @@ function Suggestions(props) {
     let diff = 1
     const [id, votes] = [sug.id, sug.votes]
     if (hasVote(id)) {
-      diff = -1
+      return
     }
     const res = await fetch(
       '/api/suggestions',

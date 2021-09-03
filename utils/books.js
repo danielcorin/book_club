@@ -29,6 +29,7 @@ async function getBooks() {
       link: props.Link.url,
       cover_link: props.Cover.files[0].name,
       rating: props.Rating?.number || 0,
+      pages: props.Pages?.number || 0,
     }
   })
   return bookList
@@ -60,6 +61,7 @@ async function getCurrentBook() {
       assigned: props.Assigned.rich_text[0].plain_text,
       genre: props.Genre.select.name,
       cover_link: props.Cover.files[0].name,
+      pages: props.Pages?.number || 0,
     }
   })
   return bookList
