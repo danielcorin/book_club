@@ -51,6 +51,9 @@ function StatsCard(props) {
           {`Median book length: ${stats.median}`}
         </Typography>
         <Typography className={classes.detail} color='textSecondary'>
+          {`Pages per day: ${stats.pagesPerDay}`}
+        </Typography>
+        <Typography className={classes.detail} color='textSecondary'>
           {`Days per book: ${stats.daysPerBook}`}
         </Typography>
         <Typography className={classes.detail} color='textSecondary'>

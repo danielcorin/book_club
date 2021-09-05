@@ -10,7 +10,7 @@ import StatsCard from '../components/stats_card'
 
 function History({ books }) {
   const title = 'History'
-  console.log(books)
+
   return (
     <Layout title={title}>
       <h1>{title}</h1>
@@ -38,16 +38,24 @@ function stats(books) {
     median: median(pageArray),
     medianRating: median(ratingArray),
     daysPerBook: daysPerBook(books),
+    pagesPerDay: pagesPerDay(books, totalPages),
   }
 }
 
 function daysPerBook(books) {
+  const days = totalDays(books)
+  // ignore first book because first date is the date we finished that
+  return (days / (books.length - 1)).toFixed(0)
+}
+
+function pagesPerDay(books, totalPages) {
+  return (totalPages / totalDays(books)).toFixed(0)
+}
+
+function totalDays(books) {
   const firstDate = books[books.length - 1].completed_at
   const lastDate = books[0].completed_at
-  const totalDays = (new Date(lastDate) - new Date(firstDate)) / 86400000
-  console.log(totalDays)
-  // ignore first book because first date is the date we finished that
-  return (totalDays / (books.length - 1)).toFixed(0)
+  return (new Date(lastDate) - new Date(firstDate)) / 86400000
 }
 
 function median(values) {
