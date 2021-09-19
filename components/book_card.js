@@ -49,12 +49,14 @@ function BookCard(props) {
   return (
     <Card className={classes.root} variant='outlined'>
       <div className={classes.cover_left}>
-        <CardMedia
-          className={classes.cover}
-          image={book.cover_link}
-          title={`${book.title} cover image`}
-          component='img'
-        />
+        <MaterialLink href={book.link} rel='noopener noreferrer' target='_blank'>
+          <CardMedia
+            className={classes.cover}
+            image={book.cover_link}
+            title={`${book.title} cover image`}
+            component='img'
+          />
+        </MaterialLink>
       </div>
       <CardContent className={classes.content}>
         <Typography className={classes.title} component='h5'>
