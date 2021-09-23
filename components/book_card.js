@@ -68,7 +68,7 @@ function BookCard(props) {
           {`${book.author} • ${book.genre} • ${book.pages} pages`}
         </Typography>
         <Typography className={classes.detail} color='textSecondary'>
-          {book.completed_at || book.assigned}
+          {book.completed_at || `Read through: ${book.assigned}`}
         </Typography>
         {book.rating ?
           <Typography className={classes.detail} color='textSecondary'>
