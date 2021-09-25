@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-import { getBooks } from '../utils/books'
+import { getBooks } from '../utils/book_club'
 
 import BookCard from '../components/book_card'
 import HomeArrow from '../components/home_arrow'

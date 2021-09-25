@@ -14,7 +14,7 @@ import {
 
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 
-import { getSuggestions } from '../utils/books'
+import { getSuggestions } from '../utils/book_club'
 
 import HomeArrow from '../components/home_arrow'
 import Layout from '../components/layout'

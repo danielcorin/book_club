@@ -5,9 +5,14 @@ import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container';
 import IconButton from '@material-ui/core/IconButton'
+import BookIcon from '@material-ui/icons/Book'
 import HomeIcon from '@material-ui/icons/Home'
+import HowToVoteIcon from '@material-ui/icons/HowToVote'
+import HistoryIcon from '@material-ui/icons/History'
+import StarIcon from '@material-ui/icons/Star'
 import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
+import Tooltip from "@material-ui/core/Tooltip";
 import { spacing } from '@material-ui/system'
 
 export default function Layout({
@@ -28,18 +33,39 @@ export default function Layout({
           <Toolbar>
             <IconButton edge="start" color="inherit" aria-label="menu">
               <Link href='/' passHref>
-                <HomeIcon />
+                <Tooltip title="Home">
+                  <HomeIcon />
+                </Tooltip>
               </Link>
             </IconButton>
-            <Link href="/reading" passHref>
-              <Button variant="text" color="inherit">Reading</Button>
-            </Link>
-            <Link href="/history" passHref>
-              <Button variant="text" color="inherit">History</Button>
-            </Link>
-            <Link href="/suggestions" passHref>
-              <Button variant="text" color="inherit">Suggestions</Button>
-            </Link>
+            <IconButton edge="start" color="inherit" aria-label="menu">
+              <Link href='/reading' passHref>
+                <Tooltip title="Currently Reading">
+                  <BookIcon />
+                </Tooltip>
+              </Link>
+            </IconButton>
+            <IconButton edge="start" color="inherit" aria-label="menu">
+              <Link href='/history' passHref>
+                <Tooltip title="History">
+                  <HistoryIcon />
+                </Tooltip>
+              </Link>
+            </IconButton>
+            <IconButton edge="start" color="inherit" aria-label="menu">
+              <Link href='/suggestions' passHref>
+                <Tooltip title="Suggestions">
+                  <HowToVoteIcon />
+                </Tooltip>
+              </Link>
+            </IconButton>
+            <IconButton edge="start" color="inherit" aria-label="menu">
+              <Link href='/streaks' passHref>
+                <Tooltip title="Streaks">
+                  <StarIcon />
+                </Tooltip>
+              </Link>
+            </IconButton>
           </Toolbar>
         </AppBar>
       </header>

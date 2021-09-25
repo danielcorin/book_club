@@ -40,10 +40,10 @@ export default function Home() {
             </a>
           </Link>
 
-          <Link href='/suggestions'>
+          <Link href='/streaks'>
             <a className={styles.card}>
-              <h2>🗳 Vote on suggestions &rarr;</h2>
-              <p>Help pick what we read next</p>
+              <h2>⭐️ See streaks &rarr;</h2>
+              <p>Rack up starts</p>
             </a>
           </Link>
         </div>

@@ -2,6 +2,7 @@ import notion from './notion'
 
 const bookDatabaseID = process.env.NOTION_BOOK_DATABASE_ID
 const suggestionDatabaseID = process.env.NOTION_SUGGESTION_DATABASE_ID
+const memberDatabaseID = process.env.NOTION_MEMBER_DATABASE_ID
 
 async function getBooks() {
   const response = await notion.databases.query({
@@ -156,6 +157,43 @@ async function updateSuggestionRead(id, read) {
   return response
 }
 
+async function getMembers() {
+  const response = await notion.databases.query({
+    database_id: memberDatabaseID,
+
+    filter: {
+      and: [
+        {
+          property: "Current Member",
+          checkbox: {
+            equals: true
+          },
+        },
+        {
+          property: "Streak Since",
+          date: {
+            is_not_empty: true
+          },
+        }
+      ]
+    },
+    sorts: [
+      {
+        property: "Streak Since",
+        direction: "ascending",
+      }
+    ]
+  })
+  const outList = response.results.map(item => {
+    const props = item.properties;
+    return {
+      name: props.Name.title[0].plain_text,
+      streak_since: props['Streak Since'].date.start,
+    }
+  })
+  return outList
+}
+
 
 async function test() {
   const response = await notion.databases.query({
@@ -169,6 +207,7 @@ export {
   deleteSuggestion,
   getBooks,
   getCurrentBook,
+  getMembers,
   getSuggestions,
   updateSuggestionRead,
   updateSuggestionVotes,

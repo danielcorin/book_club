@@ -5,7 +5,7 @@ import {
   deleteSuggestion,
   updateSuggestionRead,
   updateSuggestionVotes,
-} from '../../utils/books'
+} from '../../utils/book_club'
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
