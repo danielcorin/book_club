@@ -18,6 +18,7 @@ function Streaks({ members }) {
   const useStyles = makeStyles({
     root: {
       minWidth: 275,
+      minHeight: 50,
       maxHeight: 50,
       display: 'flex',
     },
