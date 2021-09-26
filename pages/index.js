@@ -43,7 +43,7 @@ export default function Home() {
           <Link href='/streaks'>
             <a className={styles.card}>
               <h2>⭐️ See streaks &rarr;</h2>
-              <p>Rack up starts</p>
+              <p>Rack up stars</p>
             </a>
           </Link>
         </div>
