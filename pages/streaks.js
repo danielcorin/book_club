@@ -43,10 +43,13 @@ function Streaks({ members }) {
       <h1>{title}</h1>
       {
         members.map((member, index) => {
-          const streakLength = weeksBetween(
-            Date.parse(member.streak_since),
-            Date.now(),
-          )
+          let streakLength = 0;
+          if (member.streak_since) {
+            streakLength = weeksBetween(
+              Date.parse(member.streak_since),
+              Date.now(),
+            )
+          }
           return (
             <Card key={index} className={classes.root} style={{ border: "none", boxShadow: "none" }}>
               <CardContent className={classes.content}>

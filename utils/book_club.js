@@ -169,12 +169,6 @@ async function getMembers() {
             equals: true
           },
         },
-        {
-          property: "Streak Since",
-          date: {
-            is_not_empty: true
-          },
-        }
       ]
     },
     sorts: [
@@ -188,7 +182,7 @@ async function getMembers() {
     const props = item.properties;
     return {
       name: props.Name.title[0].plain_text,
-      streak_since: props['Streak Since'].date.start,
+      streak_since: props['Streak Since']?.date.start || null,
     }
   })
   return outList
