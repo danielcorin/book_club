@@ -18,8 +18,8 @@ function Streaks({ members }) {
   const useStyles = makeStyles({
     root: {
       minWidth: 275,
-      minHeight: 55,
-      maxHeight: 55,
+      minHeight: 60,
+      maxHeight: 60,
       display: 'flex',
     },
     title: {
@@ -53,7 +53,7 @@ function Streaks({ members }) {
           return (
             <Card key={index} className={classes.root} style={{ border: "none", boxShadow: "none" }}>
               <CardContent className={classes.content}>
-                <div>{`${member.name} (${streakLength})`}</div>
+                <div>{`${member.emoji} ${member.name} (${streakLength})`}</div>
                 <Box className={classes.rating}>
                   <Rating
                     size='small'

@@ -183,6 +183,7 @@ async function getMembers() {
     return {
       name: props.Name.title[0].plain_text,
       streak_since: props['Streak Since']?.date.start || null,
+      emoji: item.icon.emoji,
     }
   })
   return outList
