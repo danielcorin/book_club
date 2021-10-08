@@ -22,8 +22,17 @@ function Streaks({ members }) {
       maxHeight: 60,
       display: 'flex',
     },
+    emoji_left: {
+      display: 'flex',
+      flexDirection: 'column',
+      fontSize: 30,
+    },
+    content: {
+      flex: '1 0 auto',
+      padding: '0 0 0 15px',
+    },
     title: {
-      fontSize: 18
+      fontSize: 18,
     },
     detail: {
       fontSize: 14,
@@ -52,8 +61,11 @@ function Streaks({ members }) {
           }
           return (
             <Card key={index} className={classes.root} style={{ border: "none", boxShadow: "none" }}>
+              <div className={classes.emoji_left}>
+                {member.emoji}
+              </div>
               <CardContent className={classes.content}>
-                <div>{`${member.emoji} ${member.name} (${streakLength})`}</div>
+                <div>{`${member.name} (${streakLength})`}</div>
                 <Box className={classes.rating}>
                   <Rating
                     size='small'
