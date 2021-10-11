@@ -62,7 +62,7 @@ function Streaks({ members }) {
           return (
             <Card key={index} className={classes.root} style={{ border: "none", boxShadow: "none" }}>
               <div className={classes.emoji_left}>
-                {member.emoji}
+                {member.emoji || `🤷‍♂️`}
               </div>
               <CardContent className={classes.content}>
                 <div>{`${member.name} (${streakLength})`}</div>
