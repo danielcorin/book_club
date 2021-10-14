@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 function HomeArrow(props) {
   return (
-    <Link href="/">
+    <Link href="/reading">
       <a>&larr; Home</a>
     </Link>
   )
