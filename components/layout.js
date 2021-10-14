@@ -32,7 +32,7 @@ export default function Layout({
         <AppBar position="static">
           <Toolbar>
             <IconButton edge="start" color="inherit" aria-label="menu">
-              <Link href='/' passHref>
+              <Link href='/reading' passHref>
                 <Tooltip title="Home">
                   <HomeIcon />
                 </Tooltip>
