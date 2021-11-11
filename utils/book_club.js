@@ -55,17 +55,22 @@ async function getCurrentBook() {
   })
   const bookList = response.results.map(item => {
     const props = item.properties
-    return {
-      title: props.Name.title[0].plain_text,
-      author: props.Author.rich_text[0].plain_text,
-      link: props.Link.url,
-      assigned: props.Assigned.rich_text[0].plain_text,
-      genre: props.Genre.select.name,
-      cover_link: props.Cover.files[0].name,
-      pages: props.Pages?.number || 0,
+    try {
+      const book = {
+        title: props.Name.title[0].plain_text,
+        author: props.Author.rich_text[0].plain_text,
+        link: props.Link.url,
+        assigned: props.Assigned?.rich_text[0]?.plain_text || '',
+        genre: props.Genre.select.name,
+        cover_link: props.Cover.files[0].name,
+        pages: props.Pages?.number || 0,
+      }
+      return book;
+    } catch (e) {
+      return null;
     }
-  })
-  return bookList
+  });
+  return bookList.filter(Boolean);
 }
 
 async function createSuggestion(title, url) {
