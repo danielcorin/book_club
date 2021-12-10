@@ -67,6 +67,9 @@ function StatsCard(props) {
             />
           </Box>
         </Typography>
+        <Typography className={classes.detail} color='textSecondary'>
+          {`Rating standard deviation: ${stats.ratingStd}`}
+        </Typography>
       </CardContent>
     </Card>
   )

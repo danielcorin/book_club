@@ -39,6 +39,7 @@ function stats(books) {
     medianRating: median(ratingArray),
     daysPerBook: daysPerBook(books),
     pagesPerDay: pagesPerDay(books, totalPages),
+    ratingStd: standardDeviation(ratingArray).toFixed(2),
   }
 }
 
@@ -71,6 +72,12 @@ function median(values) {
     return values[half];
 
   return (values[half - 1] + values[half]) / 2.0;
+}
+
+function standardDeviation(numArray) {
+  const mean = numArray.reduce((s, n) => s + n) / numArray.length;
+  const variance = numArray.reduce((s, n) => s + (n - mean) ** 2, 0) / (numArray.length - 1);
+  return Math.sqrt(variance);
 }
 
 export const getServerSideProps = async () => {
