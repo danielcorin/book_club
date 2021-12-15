@@ -9,6 +9,7 @@ import BookIcon from '@material-ui/icons/Book'
 import HomeIcon from '@material-ui/icons/Home'
 import HowToVoteIcon from '@material-ui/icons/HowToVote'
 import HistoryIcon from '@material-ui/icons/History'
+import BarChartIcon from '@material-ui/icons/BarChart'
 import StarIcon from '@material-ui/icons/Star'
 import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -63,6 +64,13 @@ export default function Layout({
               <Link href='/streaks' passHref>
                 <Tooltip title="Streaks">
                   <StarIcon />
+                </Tooltip>
+              </Link>
+            </IconButton>
+            <IconButton edge="start" color="inherit" aria-label="menu">
+              <Link href='/graphs' passHref>
+                <Tooltip title="Graphs">
+                  <BarChartIcon />
                 </Tooltip>
               </Link>
             </IconButton>

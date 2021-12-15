@@ -31,6 +31,7 @@ async function getBooks() {
       cover_link: props.Cover.files[0].name,
       rating: props.Rating?.number || 0,
       pages: props.Pages?.number || 0,
+      leader_member_id: props.Leader.relation[0].id,
     }
   })
   return bookList
@@ -121,7 +122,7 @@ async function getSuggestions() {
       url: props.Url?.url || null,
       read: props.Read.checkbox,
       id: item.id,
-      properties: props
+      properties: props,
     }
   })
   return suggestionList
@@ -165,7 +166,6 @@ async function updateSuggestionRead(id, read) {
 async function getMembers() {
   const response = await notion.databases.query({
     database_id: memberDatabaseID,
-
     filter: {
       and: [
         {
@@ -186,6 +186,7 @@ async function getMembers() {
   const outList = response.results.map(item => {
     const props = item.properties;
     return {
+      id: item.id,
       name: props.Name.title[0].plain_text,
       streak_since: props['Streak Since']?.date.start || null,
       emoji: item.icon?.emoji || null,

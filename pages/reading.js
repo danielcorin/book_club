@@ -10,8 +10,6 @@ import Layout from '../components/layout'
 function Current(props) {
   const title = 'Currently Reading'
 
-
-
   return (
     <Layout title={title}>
       <h1>{title}</h1>

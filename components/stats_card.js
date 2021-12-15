@@ -39,7 +39,7 @@ function StatsCard(props) {
     <Card className={classes.root} variant='outlined'>
       <CardContent className={classes.content}>
         <Typography className={classes.title} component='h5'>
-          Statistics
+          📊 Statistics
         </Typography>
         <Typography className={classes.detail} color='textSecondary'>
           {`Books read: ${stats.numberOfBooks}`}
