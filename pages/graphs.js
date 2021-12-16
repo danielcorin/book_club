@@ -15,6 +15,7 @@ import Layout from '../components/layout'
 import GenreDonut from '../components/graphs/genre_donut';
 import RatingsDistribution from '../components/graphs/ratings_distribution';
 import RatingsOverTime from '../components/graphs/ratings_over_time';
+import RatingsVsPages from '../components/graphs/ratings_vs_pages';
 
 const title = "Graphs"
 
@@ -26,6 +27,7 @@ function Graphs({books, members}) {
         <Grid container item md={6} direction="column" >
           <RatingsDistribution books={books} />
           <RatingsOverTime books={books} />
+          <RatingsVsPages books={books} />
         </Grid>
         <Grid container item md={6} direction="column" >
           <GenreDonut books={books} />
