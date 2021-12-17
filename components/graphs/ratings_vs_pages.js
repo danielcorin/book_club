@@ -47,9 +47,10 @@ function RatingsVsPages({books}) {
     }
   })
   const options = {
+    responsive: true,
     plugins: {
       legend: {
-        position: "bottom",
+        display: false,
       },
       title: {
         display: true,
@@ -59,18 +60,13 @@ function RatingsVsPages({books}) {
         callbacks: {
           title: (data) => {
             const booksNeedingTip = data.map(d => genres[d.dataset.label][d.dataIndex])
-            var outStr = booksNeedingTip.map(book => `${book.title}: ${book.author}`).join(', ');
+            var outStr = booksNeedingTip.map(book => `${book.title}: ${book.author} (${book.genre})`).join(', ');
             return outStr;
           },
           label: (data) => {
             return `${data.parsed.x} pages, ⭐️${data.parsed.y}`
           }
         }
-      },
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
       },
     },
   };
