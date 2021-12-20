@@ -45,12 +45,13 @@ function Streaks({ members }) {
   const classes = useStyles()
 
   const title = 'Streaks'
+  const activeMembers = members.filter(member => member.active)
 
   return (
     <Layout title={title}>
       <h1>{title}</h1>
       {
-        members.map((member, index) => {
+        activeMembers.map((member, index) => {
           let streakLength = 0;
           if (member.streak_since) {
             streakLength = weeksBetween(

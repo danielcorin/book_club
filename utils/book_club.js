@@ -166,16 +166,6 @@ async function updateSuggestionRead(id, read) {
 async function getMembers() {
   const response = await notion.databases.query({
     database_id: memberDatabaseID,
-    filter: {
-      and: [
-        {
-          property: "Current Member",
-          checkbox: {
-            equals: true
-          },
-        },
-      ]
-    },
     sorts: [
       {
         property: "Streak Since",
@@ -190,6 +180,7 @@ async function getMembers() {
       name: props.Name.title[0].plain_text,
       streak_since: props['Streak Since']?.date.start || null,
       emoji: item.icon?.emoji || null,
+      active: props['Current Member'].checkbox,
     }
   })
   return outList
