@@ -16,6 +16,7 @@ const colors =  [
 ];
 
 colors.sort((a, b) => 0.5 - Math.random());
+const diff = 0.1
 
 function RatingsByMember({books, members}) {
   const memberIDToName = {};
@@ -35,9 +36,9 @@ function RatingsByMember({books, members}) {
     let min = Math.min(...entry[1])
     let max = Math.max(...entry[1])
     if (min == max) {
-      min -= 0.1
+      min -= diff
       min = Math.max(min, 0)
-      max += 0.1
+      max += diff
     }
     return [min, max]
   })
