@@ -33,10 +33,10 @@ export default function Home() {
             </a>
           </Link>
 
-          <Link href='/suggestions'>
+          <Link href='/love'>
             <a className={styles.card}>
-              <h2>📓 Suggest books &rarr;</h2>
-              <p>Help find the next great read</p>
+              <h2>💛 Books We Love &rarr;</h2>
+              <p>Group Recommendations</p>
             </a>
           </Link>
 

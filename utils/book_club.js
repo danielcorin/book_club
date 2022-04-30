@@ -3,6 +3,7 @@ import notion from './notion'
 const bookDatabaseID = process.env.NOTION_BOOK_DATABASE_ID
 const suggestionDatabaseID = process.env.NOTION_SUGGESTION_DATABASE_ID
 const memberDatabaseID = process.env.NOTION_MEMBER_DATABASE_ID
+const booksWeLoveDatabaseID = process.env.NOTION_BOOKS_WE_LOVE_DATABASE_ID
 
 async function getBooks() {
   const response = await notion.databases.query({
@@ -37,6 +38,24 @@ async function getBooks() {
   return bookList
 }
 
+
+async function getBooksWeLove() {
+  const response = await notion.databases.query({
+    database_id: booksWeLoveDatabaseID,
+  })
+  const bookList = response.results.map(item => {
+    const props = item.properties
+    return {
+      title: props.Name.title[0].plain_text,
+      author: props.Author.rich_text[0].plain_text,
+      genre: props.Genre.select.name,
+      link: props.Link.url,
+      cover_link: props.Cover.files[0].name,
+      pages: props.Pages?.number || 0,
+    }
+  })
+  return bookList
+}
 
 async function getCurrentBook() {
   const response = await notion.databases.query({
@@ -198,6 +217,7 @@ export {
   createSuggestion,
   deleteSuggestion,
   getBooks,
+  getBooksWeLove,
   getCurrentBook,
   getMembers,
   getSuggestions,

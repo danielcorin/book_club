@@ -46,6 +46,15 @@ function BookCard(props) {
   const classes = useStyles()
   const book = props.book
 
+  let assigedOrCompleted = null
+  if (book.completed_at || book.assigned) {
+    let text = book.completed_at ? `Completed ${book.completed_at}` : `Read through ${book.assigned}`
+    assigedOrCompleted = (
+      <Typography className={classes.detail} color='textSecondary'>
+        {text}
+      </Typography>
+    )
+  }
   return (
     <Card className={classes.root} variant='outlined'>
       <div className={classes.cover_left}>
@@ -67,9 +76,7 @@ function BookCard(props) {
         <Typography className={classes.detail} color='textSecondary'>
           {`${book.author} • ${book.genre} • ${book.pages} pages`}
         </Typography>
-        <Typography className={classes.detail} color='textSecondary'>
-          {book.completed_at || `Read through: ${book.assigned}`}
-        </Typography>
+        {assigedOrCompleted}
         {book.rating ?
           <Typography className={classes.detail} color='textSecondary'>
             <Box className={classes.rating}>

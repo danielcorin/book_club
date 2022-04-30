@@ -7,7 +7,7 @@ import Container from '@material-ui/core/Container';
 import IconButton from '@material-ui/core/IconButton'
 import BookIcon from '@material-ui/icons/Book'
 import HomeIcon from '@material-ui/icons/Home'
-import HowToVoteIcon from '@material-ui/icons/HowToVote'
+import FavoriteIcon from '@material-ui/icons/Favorite'
 import HistoryIcon from '@material-ui/icons/History'
 import BarChartIcon from '@material-ui/icons/BarChart'
 import StarIcon from '@material-ui/icons/Star'
@@ -54,9 +54,9 @@ export default function Layout({
               </Link>
             </IconButton>
             <IconButton edge="start" color="inherit" aria-label="menu">
-              <Link href='/suggestions' passHref>
-                <Tooltip title="Suggestions">
-                  <HowToVoteIcon />
+              <Link href='/love' passHref>
+                <Tooltip title="Books We Love">
+                  <FavoriteIcon />
                 </Tooltip>
               </Link>
             </IconButton>
