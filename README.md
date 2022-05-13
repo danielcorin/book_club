@@ -2,6 +2,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Create `.env` file with the following values from Notion:
+
+```
+NOTION_KEY=<your value>
+NOTION_BOOK_DATABASE_ID=<your value>
+NOTION_SUGGESTION_DATABASE_ID=<your value>
+NOTION_MEMBER_DATABASE_ID=<your value>
+NOTION_BOOKS_WE_LOVE_DATABASE_ID=<your value>
+```
+
 First, run the development server:
 
 ```bash
