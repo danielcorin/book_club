@@ -20,7 +20,6 @@ function Current(props) {
           )
         })
       }
-      <HomeArrow />
     </Layout>
   )
 }
