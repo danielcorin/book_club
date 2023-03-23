@@ -69,8 +69,9 @@ function BookCard(props) {
       </div>
       <CardContent className={classes.content}>
         <Typography className={classes.title} component='h5'>
+          {book.tomato_rating}
           <MaterialLink href={book.link} rel='noopener noreferrer' target='_blank'>
-          {book.tomato_rating} {book.title}
+            {book.title}
           </MaterialLink>
         </Typography>
         <Typography className={classes.detail} color='textSecondary'>
