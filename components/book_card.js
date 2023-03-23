@@ -70,7 +70,7 @@ function BookCard(props) {
       <CardContent className={classes.content}>
         <Typography className={classes.title} component='h5'>
           <MaterialLink href={book.link} rel='noopener noreferrer' target='_blank'>
-            {book.title}
+          {book.tomato_rating} {book.title}
           </MaterialLink>
         </Typography>
         <Typography className={classes.detail} color='textSecondary'>
