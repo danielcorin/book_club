@@ -34,6 +34,7 @@ async function getBooks() {
       pages: props.Pages?.number || 0,
       leader_member_id: props.Leader.relation[0].id,
       tomato_rating: props['Tomato rating'].select.name,
+      goodreads_rating: props['Goodreads rating']?.number || 0,
     }
   })
   return bookList

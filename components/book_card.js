@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles';
+import { FaGoodreadsG } from 'react-icons/fa';
 
 function BookCard(props) {
   const useStyles = makeStyles({
@@ -87,6 +88,7 @@ function BookCard(props) {
                 precision={0.5}
                 readOnly
               />
+              <FaGoodreadsG />{book.goodreads_rating}
             </Box>
           </Typography>
           : null
