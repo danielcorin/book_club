@@ -33,7 +33,7 @@ export default function Layout({
         <AppBar position="static">
           <Toolbar>
             <IconButton edge="start" color="inherit" aria-label="menu">
-              <Link href='/reading' passHref>
+              <Link href='/' passHref>
                 <Tooltip title="Home">
                   <HomeIcon />
                 </Tooltip>
@@ -57,13 +57,6 @@ export default function Layout({
               <Link href='/love' passHref>
                 <Tooltip title="Books We Love">
                   <FavoriteIcon />
-                </Tooltip>
-              </Link>
-            </IconButton>
-            <IconButton edge="start" color="inherit" aria-label="menu">
-              <Link href='/streaks' passHref>
-                <Tooltip title="Streaks">
-                  <StarIcon />
                 </Tooltip>
               </Link>
             </IconButton>
