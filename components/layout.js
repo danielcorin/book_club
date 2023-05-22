@@ -69,7 +69,7 @@ export default function Layout({
               </Link>
             </IconButton>
             <IconButton edge="start" color="inherit" aria-label="menu">
-              <Link href='https://marlow-ai.vercel.app/manage' passHref>
+              <Link href='https://marlow-ai.vercel.app/' passHref>
                 <Tooltip title="Recommendations">
                   <AutoAwesomeIcon />
                 </Tooltip>

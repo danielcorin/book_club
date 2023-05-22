@@ -18,6 +18,7 @@ import RatingsOverTime from '../components/graphs/ratings_over_time';
 import RatingsVsPages from '../components/graphs/ratings_vs_pages';
 import RatingsByGenre from '../components/graphs/ratings_by_genre';
 import RatingsByMember from '../components/graphs/ratings_by_member';
+import RatingsGoodReadsDelta from '../components/graphs/ratings_goodreads_delta';
 
 const title = "Graphs"
 
@@ -29,6 +30,7 @@ function Graphs({books, members}) {
         <Grid container item md={6} direction="column" >
           <RatingsDistribution books={books} />
           <RatingsOverTime books={books} />
+          <RatingsGoodReadsDelta books={books} />
           <RatingsVsPages books={books} />
           <RatingsByMember books={books} members={members} />
         </Grid>
