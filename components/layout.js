@@ -10,6 +10,7 @@ import HomeIcon from '@material-ui/icons/Home'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import HistoryIcon from '@material-ui/icons/History'
 import BarChartIcon from '@material-ui/icons/BarChart'
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import StarIcon from '@material-ui/icons/Star'
 import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -33,7 +34,7 @@ export default function Layout({
         <AppBar position="static">
           <Toolbar>
             <IconButton edge="start" color="inherit" aria-label="menu">
-              <Link href='/reading' passHref>
+              <Link href='/' passHref>
                 <Tooltip title="Home">
                   <HomeIcon />
                 </Tooltip>
@@ -61,16 +62,16 @@ export default function Layout({
               </Link>
             </IconButton>
             <IconButton edge="start" color="inherit" aria-label="menu">
-              <Link href='/streaks' passHref>
-                <Tooltip title="Streaks">
-                  <StarIcon />
+              <Link href='/graphs' passHref>
+                <Tooltip title="Graphs">
+                  <BarChartIcon />
                 </Tooltip>
               </Link>
             </IconButton>
             <IconButton edge="start" color="inherit" aria-label="menu">
-              <Link href='/graphs' passHref>
-                <Tooltip title="Graphs">
-                  <BarChartIcon />
+              <Link href='https://marlow-ai.vercel.app/' passHref>
+                <Tooltip title="Recommendations">
+                  <AutoAwesomeIcon />
                 </Tooltip>
               </Link>
             </IconButton>
