@@ -16,7 +16,6 @@
     "@material-ui/lab": "^4.0.0-alpha.60",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.3",
-    "@mui/styles": "^5.13.2",
     "@notionhq/client": "^0.2.2",
     "chart.js": "^3.6.2",
     "chartjs-adapter-date-fns": "^2.0.0",
@@ -25,17 +24,16 @@
     "date-fns": "^2.27.0",
     "firebase": "^8.7.1",
     "firebase-admin": "^9.11.0",
-    "next": "13.2.4",
-    "react": "^18.0.2",
+    "next": "^11.0.1",
+    "react": "^17.0.2",
     "react-chartjs-2": "^4.0.0",
-    "react-dom": "18.2.0",
+    "react-dom": "^17.0.2",
     "react-icons": "^4.8.0",
     "reactstrap": "^8.9.0",
     "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
     "eslint": "7.31.0",
-    "eslint-config-next": "13.2.4",
-    "typescript": "5.0.4"
+    "eslint-config-next": "11.0.1"
   }
 }
