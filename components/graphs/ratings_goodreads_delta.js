@@ -26,7 +26,8 @@ colors.sort((a, b) => 0.5 - Math.random());
 
 function RatingsGoodReadsDelta({books}) {
   // oldest first
-  books.reverse()
+  const newArray = books.slice();
+  newArray.reverse()
 
   const options = {
     responsive: true,
